@@ -5,6 +5,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Packages
+package-lock.json
+
 # Runtime data
 pids
 *.pid
@@ -59,3 +62,9 @@ typings/
 
 # next.js build output
 .next
+
+# build
+.node-dist
+
+# ide
+**/.vscode

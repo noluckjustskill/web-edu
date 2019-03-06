@@ -1,0 +1,10 @@
+{
+  "site": {
+    "database": "site",
+    "host": ["127.0.0.1"],
+    "username": "root",
+    "password": "fff123",
+    "dialect": "mysql",
+    "timezone": "+03:00"
+  }
+}
