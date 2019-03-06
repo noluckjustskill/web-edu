@@ -2,8 +2,8 @@
   "site": {
     "database": "site",
     "host": ["127.0.0.1"],
-    "username": "root",
-    "password": "fff123",
+    "username": "USER",
+    "password": "PASS",
     "dialect": "mysql",
     "timezone": "+03:00"
   }
