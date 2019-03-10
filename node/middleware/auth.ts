@@ -4,24 +4,40 @@ export default async (req: IRequest<null>, res: IResponse<null>, next: any) => {
 
   try {
 
+    if (req.url.indexOf('/auth') !== -1 || req.url.indexOf('/login') !== -1 || req.url.indexOf('/public') !== -1) {
+      next();
+      return;
+    }
+
     const key: string = req.cookies['console-auth'] || req.headers['console-auth'];
 
     // Проверить ключ авторизации в базе
 
-    if ( /* ключа нет */ ) {
+    if ( !key || !key.length) {
       console.log(`Unauthorized request to ${req.url}`);
-      res.redirect(/*  */);
+      res.redirect('/login');
       return;
     }
 
-    if ( /* есть юзер для ключа */ ) {
+    const userId = await db.site.models.auth.findOne({
+      where: { key },
+    }).then((row) => {
+      return row ? row.userId : null;
+    });
 
-      req.auth = {
-        /* базовая инфа о сесси */
-      };
-
+    if (userId !== null) {
+      await db.site.models.users.findOne({
+        where: { id: userId },
+      }).then((row) => {
+        req.auth = {
+          userId,
+          name: row.name,
+          role: row.role,
+        }
+      });
     } else {
-      req.auth = null;
+      res.redirect('/login');
+      return;
     }
 
     next();

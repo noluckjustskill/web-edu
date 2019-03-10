@@ -10,15 +10,8 @@ declare global {
     interface Request {
       auth: null | {
         userId: number;
-        login: string;
-        type: 'admin' | 'dealer' | 'source';
         name: string;
-        lang: 'en' | 'ru';
-        permissions: 'rw' | 'ro';
-        dealer: { [dealer: string]: boolean };
-        source: { [source: string]: boolean };
-        selectedDealer?: string;
-        selectedSource?: string;
+        role: 'admin' | 'teacher' | 'student';
       };
     }
   }

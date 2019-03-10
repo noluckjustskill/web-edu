@@ -1,5 +1,7 @@
+import { app } from '../app';
+import Client from './client';
+
 export default (url: string = ''): void => {
 
-  // Вызвать контроллер относительно юрла
-  // Offers(`${url}/client`);
+  app.get(`${url}/client`, Client);
 };
