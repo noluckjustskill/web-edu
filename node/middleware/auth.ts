@@ -1,10 +1,11 @@
 import { db, Op } from '../database';
+import * as authConfig from 'config/ignored.json';
 
 export default async (req: IRequest<null>, res: IResponse<null>, next: any) => {
 
   try {
 
-    if (req.url.indexOf('/auth') !== -1 || req.url.indexOf('/login') !== -1 || req.url.indexOf('/public') !== -1) {
+    if (authConfig.ignoredUrl.includes(req.url)) {
       next();
       return;
     }
