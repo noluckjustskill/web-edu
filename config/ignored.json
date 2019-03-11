@@ -1,0 +1,7 @@
+{
+    "ignoredUrl": [
+        "/auth", 
+        "/login",
+        "/public"
+    ]
+}
