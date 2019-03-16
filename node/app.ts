@@ -9,6 +9,7 @@ import * as configHttp from '../config/http.json';
 import { Auth } from './middleware';
 import startController from './controller';
 import AuthController from './controller/auth';
+import LogoutController from './controller/logout';
 
 export const app = Express();
 
@@ -32,11 +33,14 @@ app.get('/', (req, res, next) => {
   });
 });
 
+
 app.get('/login', (req, res, next) => {
   res.render(path.resolve(`${__dirname}/../../view/login.ejs`));
 });
 
 app.post('/auth', AuthController);
+
+app.get('/logout',LogoutController);
 
 app.listen(configHttp.port, configHttp.ip, () => {
   console.log(`Started HTTP server at ${configHttp.ip}:${configHttp.port}`);
