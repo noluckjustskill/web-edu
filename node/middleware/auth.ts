@@ -1,5 +1,5 @@
 import { db, Op } from '../database';
-import * as authConfig from 'config/ignored.json';
+import * as authConfig from '../../config/ignored.json';
 
 export default async (req: IRequest<null>, res: IResponse<null>, next: any) => {
 
