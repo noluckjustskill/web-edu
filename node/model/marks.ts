@@ -1,5 +1,8 @@
 import { STRING, INTEGER, ENUM, Instance, Sequelize, Model } from 'sequelize';
-import { IInstance as IAuth } from './auth';
+import { IInstance as IUsers } from './users';
+import { IInstance as ISemester } from './semester';
+import { IInstance as ISubject } from './subject';
+
 
 interface IAttributes {
   id?: number;
@@ -10,8 +13,11 @@ interface IAttributes {
   }
 
 interface IInstance extends Instance<IAttributes>, IAttributes {
-  auth: IAuth[];
+  users: IUsers[];
+  subject: ISubject[];
+  semester: ISemester[];
 }
+
 
 const init = (connection: Sequelize) => {
 

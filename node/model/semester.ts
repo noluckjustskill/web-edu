@@ -1,13 +1,12 @@
 import { STRING, INTEGER, ENUM, DATE, Instance, Sequelize, Model } from 'sequelize';
-import { IInstance as IAuth } from './auth';
 
 interface IAttributes {
   id?: number;
   date: Date;
-  }
+}
 
 interface IInstance extends Instance<IAttributes>, IAttributes {
-  auth: IAuth[];
+
 }
 
 const init = (connection: Sequelize) => {
