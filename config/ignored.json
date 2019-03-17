@@ -2,6 +2,7 @@
     "ignoredUrl": [
         "/auth", 
         "/login",
-        "/public"
+        "/public",
+        "/login?bad=true"
     ]
 }
