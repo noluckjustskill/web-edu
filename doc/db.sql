@@ -25,6 +25,39 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `marks` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`user_id` INT(11) UNSIGNED NULL DEFAULT NULL,
+	`subject_id` INT(11) UNSIGNED NULL DEFAULT NULL,
+	`semester_id` INT(11) UNSIGNED NULL DEFAULT NULL,
+	`mark` ENUM('2','3','4','5') NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `FK_marks_users` (`user_id`),
+	INDEX `FK_marks_subject` (`subject_id`),
+	INDEX `FK_marks_semester` (`semester_id`),
+	CONSTRAINT `FK_marks_semester` FOREIGN KEY (`semester_id`) REFERENCES `semester` (`id`),
+	CONSTRAINT `FK_marks_subject` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`id`),
+	CONSTRAINT `FK_marks_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
+CREATE TABLE `subject` (
+	`id` INT(10) UNSIGNED NOT NULL,
+	`name` VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
+CREATE TABLE `semester` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`date` DATE NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,5 @@
 import { db, Op } from '../database';
-import * as authConfig from 'config/ignored.json';
+import * as authConfig from '../../config/ignored.json';
 
 export default async (req: IRequest<null>, res: IResponse<null>, next: any) => {
 
@@ -11,8 +11,6 @@ export default async (req: IRequest<null>, res: IResponse<null>, next: any) => {
     }
 
     const key: string = req.cookies['console-auth'] || req.headers['console-auth'];
-
-    // Проверить ключ авторизации в базе
 
     if ( !key || !key.length) {
       console.log(`Unauthorized request to ${req.url}`);
