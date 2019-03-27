@@ -1,7 +1,12 @@
 'use strict'
 
 $.get( '/api/marks', ( data ) => {
-    data.forEach(mark => {
-        $('#container table tbody').append(`<tr><td>${mark.semester}</td><td>${mark.subject}</td><td>${mark.mark}</td></tr>`);     
+    data.marks.forEach(mark => {
+        $('#marks table tbody').append(`<tr><td>${mark.semester}</td><td>${mark.subject}</td><td>${mark.mark}</td></tr>`);     
     });    
+});
+
+$('#navbar a').click((e) => {
+    $('.container').hide();
+    $('#'+$(e.target).attr('data-href')).show();
 });
