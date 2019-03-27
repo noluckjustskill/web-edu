@@ -9,12 +9,35 @@
 
   <link rel="stylesheet" href="public/css/styles.css?v=1.0">
 
+  <script src="public/js/jquery.js"></script>
 </head>
 
 <body>
-    <a href="/logout" class="button" />Logout</a>
-  <h1><%=text%></h1>
-  <img src="public/img/empty.jpg" alt="empty">
+  <header>
+    <div class="header_name"><p>Личный кабинет</p></div>
+    <a href="/logout" class="button" />Выйти</a>
+  </header>
+  </div>
+  <div id="menu">
+    <ul id="navbar">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">Оценки</a></li>
+    </ul>
+  </div>
+  <div id ="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Семестр</th>
+          <th>Предмет</th>
+          <th>Оценка</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
 
   <script src="public/js/main.js"></script>
 </body>
