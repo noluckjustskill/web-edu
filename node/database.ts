@@ -2,6 +2,9 @@ import * as Sequelize from 'sequelize';
 
 import * as Users from './model/users';
 import * as Auth from './model/auth';
+import * as Marks from './model/marks';
+import * as Semester from './model/semester';
+import * as Subject from './model/subject';
 
 interface IDBConfig {
   database: string;
@@ -15,6 +18,9 @@ interface IDBConfig {
 interface IModelsSite {
   users: Sequelize.Model<Users.IInstance, Users.IAttributes>;
   auth: Sequelize.Model<Auth.IInstance, Auth.IAttributes>;
+  marks: Sequelize.Model<Marks.IInstance, Marks.IAttributes>;
+  subject: Sequelize.Model<Subject.IInstance, Subject.IAttributes>;
+  semester: Sequelize.Model<Semester.IInstance, Semester.IAttributes>;
 }
 
 export interface IDB {
@@ -34,6 +40,9 @@ export interface IAttributes {
   site: {
     users: Users.IAttributes,
     auth: Auth.IAttributes,
+    marks: Marks.IAttributes,
+    subject: Subject.IAttributes,
+    semester: Semester.IAttributes,
   };
 }
 
@@ -74,9 +83,21 @@ Object.keys(configDatabase).forEach((dbName) => {
 
       models.users = Users.init(connection);
       models.auth = Auth.init(connection);
+      models.marks = Marks.init(connection);
+      models.subject = Subject.init(connection);
+      models.semester = Semester.init(connection);
 
       models.users.hasMany(models.auth, { foreignKey: 'userId' });
       models.auth.belongsTo(models.users, { foreignKey: 'userId' });
+
+      models.users.hasMany(models.marks, { foreignKey: 'userId' });
+      models.marks.belongsTo(models.users, { foreignKey: 'userId' });
+      
+      models.subject.hasMany(models.marks, { foreignKey: 'subjectId' });
+      models.marks.belongsTo(models.subject, { foreignKey: 'subjectId' });
+
+      models.semester.hasMany(models.marks, { foreignKey: 'semesterId' });
+      models.marks.belongsTo(models.semester, { foreignKey: 'semesterId' });
     }
 
     return {
