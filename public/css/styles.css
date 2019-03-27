@@ -35,30 +35,34 @@ header {
 } 
 .button:hover { background: rgb(195, 218, 245); }
 #menu {
-  position: relative; 
+  position: absolute; 
   display: inline-block; 
   width: 15%;
+  height: 100%;
   min-width: 100px;
-  margin-top: -4px;
+  background-color: rgb(109, 110, 113);
 }
 #navbar {
   list-style-type: none;
 }
-#navbar li {
-  border-left: 10px solid rgb(109, 110, 113);
-}
 #navbar a {
   height: 50px;
   line-height: 50px;
-  background-color: rgb(109, 110, 113);
   color: #fff;
-  padding: 5px;
+  padding: 10px;
   text-decoration: none;
   font-weight: bold;
-  border-left: 5px solid rgb(0, 48, 112);
   display: block;
 }
 #navbar a:hover{
   background-color: rgb(75, 75, 77);
+  cursor: pointer;
+}
+.container{
+  display: none;
+  float: right;
+}
+.container#main{
+  display: block;
 }
 
