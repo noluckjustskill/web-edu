@@ -9,13 +9,13 @@ interface IAttributes {
   userId: number;
   subjectId: number;
   semesterId: number;
-  mark: 2|3|4|5;
+  mark: '2' | '3' | '4' | '5';
   }
 
 interface IInstance extends Instance<IAttributes>, IAttributes {
-  users: IUsers[];
-  subject: ISubject[];
-  semester: ISemester[];
+  users: IUsers;
+  subject: ISubject;
+  semester: ISemester;
 }
 
 
