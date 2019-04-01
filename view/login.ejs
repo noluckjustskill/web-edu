@@ -8,65 +8,197 @@
   <title>Students LK</title>
 
   <style>
+    body{
+      position: relative;
+      height: 100vh;
+      margin: 0;
+
+    }
    form {
-    position: relative; margin: 270px auto 0; width: 400px;
-    height: 200px;
-    background-color: #a1a1a1;
-    border: 5px groove;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 350px;
+    background-color: rgb(81, 71, 244);
+    opacity: 0.7;
+    display: block;
+    border-radius: 3px;
    }
    .bad{
-    border: 5px groove #f2ab99;
     display: none;
-    background-color:  #ffefe9;
-    margin: 10px auto 0;
+    background-color: white;
+    width: 179px;
+    margin: 15px auto 0;
+    padding: 2px;
+    border-radius: 3px;
    }
    input{
     display: block;
     margin: 10px auto 0;
+    border-radius: 3px;
+    height: 15px;
+    outline: 0;
+    border: 0;
+    padding: 5px;
    }
-   input.abutton {
-    font-size: 14px;
-    text-decoration: none;
-    cursor: pointer;
-        width:90px;
-    font-weight: bold;
-        text-align:center;
-    padding: 1px 5px;
-    color: #717171;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-    -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 0 6px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 0 6px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 0 6px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
-    background: #f6f6f6;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#d4d4d4));
-    background: -webkit-linear-gradient(#f6f6f6, #d4d4d4);
-    background-image: -moz-linear-gradient(top, #f6f6f6, #d4d4d4);
-    background-image: -moz-gradient(top, #f6f6f6, #d4d4d4);
-    border: 1px solid #a1a1a1;
+   .abutton{
+    width: 134px;
+    height: 25px;
+    opacity: 0.6;
+    background: rgba(0,0,0,0.62);
+    border-radius: 11px 11px 11px 11px;
+    color: white;
+    font-size: 13pt;
+    padding: 1px;
+   }
+   .abutton:hover{
+     border: 1px solid white;
+   }
+   .abutton:active{
+     background-color: rgb(22, 12, 201);
+   }
+  #login_img{
+    display: block; 
+    margin: 10px auto 0;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgb(22, 12, 201);
+  }
+  /* фон */
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
 }
 
-input.abutton {
-    background: #f6f6f6;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#ececec));
-    background: -webkit-linear-gradient(#f6f6f6, #ececec);
-    background-image: -moz-linear-gradient(top, #f6f6f6, #ececec);
-    background-image: -moz-gradient(top, #f6f6f6, #ececec);
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
 }
+
+.bg3 {
+  animation-duration:5s;
+}
+
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+.question{
+  margin: 25px 10px;
+  text-align: center;
+
+}
+p{
+  display: inline;
+  overflow: hidden;
+  left:53%;
+
+}
+p:before,
+p:after {
+  content: '';
+
+  /* делаем линию строчно-блочной */
+  display: inline-block;
+
+  /* выравниваем вертикально по середине */
+  vertical-align: middle;
+
+  /* не позволяем ширине превысить 100% (будет добавлен бордюр) */
+  box-sizing: border-box;
+
+  /* установка ширины в 100% делает линию равной ширине тега заголовка
+  ** благодаря этому линия заполнит все свободное пространство
+  ** слева и справа от текста
+  */
+  width: 50px;
+  height: 1px;
+  background: white;
+
+  /* добавляем к линии левый и правый бордюр цветом основного фона заголовка
+  ** благодаря этому создается нужный отступ между линиями и текстом
+  */
+  border: solid #FFF;
+  border-width: 0 10px;
+}
+p:before {
+  /* смещаем левую линию влево отрицательным отступом, равным 100% ширины
+  ** благодаря этому линия встает слева от текста
+  */
+  margin-left: -100%;
+}
+p:after {
+  /* смещаем правую линию вправо отрицательным отступом, равным 100% ширины
+  ** благодаря этому линия встает справа от текста
+  */
+  margin-right: -100%;
+}
+
+.switch_lang{
+  background-color: rgb(81, 71, 244);
+  height: 20px;
+  border-radius: 11px 11px 11px 11px;
+  padding: 2px;
+  margin-top: 30px;
+}
+.switch_lang:hover{
+  border: 1px solid white;
+}
+.switch_lang:active{
+     background-color: rgb(22, 12, 201);
+   }
   </style>
 
 </head>
 
 <body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
   <form action="/auth" method="POST">
-    <input type="text" placeholder="Login" name="login" />
-    <input type="password" placeholder="Password" name="pass">
+    <svg version="1.1" id="login_img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    width="38px" height="38px" viewBox="0 0 80.13 80.13" style="enable-background:new 0 0 80.13 80.13;" xml:space="preserve"
+   >
+ <g>
+   <path d="M48.355,17.922c3.705,2.323,6.303,6.254,6.776,10.817c1.511,0.706,3.188,1.112,4.966,1.112
+     c6.491,0,11.752-5.261,11.752-11.751c0-6.491-5.261-11.752-11.752-11.752C53.668,6.35,48.453,11.517,48.355,17.922z M40.656,41.984
+     c6.491,0,11.752-5.262,11.752-11.752s-5.262-11.751-11.752-11.751c-6.49,0-11.754,5.262-11.754,11.752S34.166,41.984,40.656,41.984
+     z M45.641,42.785h-9.972c-8.297,0-15.047,6.751-15.047,15.048v12.195l0.031,0.191l0.84,0.263
+     c7.918,2.474,14.797,3.299,20.459,3.299c11.059,0,17.469-3.153,17.864-3.354l0.785-0.397h0.084V57.833
+     C60.688,49.536,53.938,42.785,45.641,42.785z M65.084,30.653h-9.895c-0.107,3.959-1.797,7.524-4.47,10.088
+     c7.375,2.193,12.771,9.032,12.771,17.11v3.758c9.77-0.358,15.4-3.127,15.771-3.313l0.785-0.398h0.084V45.699
+     C80.13,37.403,73.38,30.653,65.084,30.653z M20.035,29.853c2.299,0,4.438-0.671,6.25-1.814c0.576-3.757,2.59-7.04,5.467-9.276
+     c0.012-0.22,0.033-0.438,0.033-0.66c0-6.491-5.262-11.752-11.75-11.752c-6.492,0-11.752,5.261-11.752,11.752
+     C8.283,24.591,13.543,29.853,20.035,29.853z M30.589,40.741c-2.66-2.551-4.344-6.097-4.467-10.032
+     c-0.367-0.027-0.73-0.056-1.104-0.056h-9.971C6.75,30.653,0,37.403,0,45.699v12.197l0.031,0.188l0.84,0.265
+     c6.352,1.983,12.021,2.897,16.945,3.185v-3.683C17.818,49.773,23.212,42.936,30.589,40.741z"/>
+     </g> <g> </g><g></g><g> </g> <g> </g> <g> </g><g> </g><g> </g><g> </g><g> </g> <g></g> <g></g> <g> </g> <g></g><g></g><g></g></svg>
+ 
+    <input type="text" required placeholder="Login" name="login" />
+    <input type="password" required placeholder="Password" name="pass">
     <input type="submit" value="login" class="abutton" />
     <div class="bad" id="bad">
-      Некорректные данные.Повторите ввод
+      Некорректные данные.
     </div>
+    <div class="question">
+        <p> Нет личного кабинета? </p>
+    </div>
+    <input type="button" class="abutton" value="Sign up">
+    <input type="button" class="switch_lang" value="switch language">
     <script>
      if (document.location.search.indexOf("bad=true") !== -1) {
        const bad = document.getElementById('bad');
