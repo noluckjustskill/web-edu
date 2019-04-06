@@ -10,6 +10,7 @@ import { Auth } from './middleware';
 import startController from './controller';
 import AuthController from './controller/auth';
 import LogoutController from './controller/logout';
+import ClientController from './controller/client';
 
 export const app = Express();
 
@@ -28,8 +29,8 @@ startController('/api');
 
 app.use('/public', Express.static(path.resolve(`${__dirname}/../../public`)));
 app.get('/', (req, res, next) => {
-  res.render(path.resolve(`${__dirname}/../../view/index.ejs`), {
-    text: 'TEST',
+  ClientController(req).then((obj) => {
+    res.render(path.resolve(`${__dirname}/../../view/index.ejs`), obj);
   });
 });
 

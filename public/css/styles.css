@@ -34,6 +34,10 @@ header {
   float: right;
 } 
 .button:hover { background: rgb(195, 218, 245); }
+#profile {
+  position: relative;
+
+}
 #menu {
   position: absolute; 
   display: inline-block; 
@@ -41,6 +45,7 @@ header {
   height: 100%;
   min-width: 100px;
   background-color: rgb(109, 110, 113);
+  margin-top: -4px;
 }
 #navbar {
   list-style-type: none;
@@ -60,9 +65,29 @@ header {
 }
 .container{
   display: none;
+  position: absolute;
+  left: 15%;
+  width: 85%;
+  height: 100%;
+  margin-top: -4px;
   float: right;
 }
 .container#main{
   display: block;
+}
+.active-button{
+  background-color: rgb(75, 75, 77);
+}
+.table_info{
+  width: 40%;
+}
+.table_info TR{
+  height: 50px;
+}
+.table_marks{
+  width: 40%;
+}
+.table_marks TR{
+  height: 50px;
 }
 
