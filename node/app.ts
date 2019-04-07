@@ -26,7 +26,7 @@ app.use(Auth);
 
 startController('/api');
 
-app.use('/public', Express.static('../public'));
+app.use('/public', Express.static(path.resolve('./public')));
 app.get('/', (req, res, next) => {
   ClientController(req).then((obj) => {
     res.render('../view/index.ejs', obj);
