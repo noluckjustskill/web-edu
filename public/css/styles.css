@@ -51,9 +51,29 @@ box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
 
 .container{
   display: none;
+  position: absolute;
+  left: 15%;
+  width: 85%;
+  height: 100%;
+  margin-top: -4px;
   float: right;
 }
 .container#main{
   display: block;
+}
+.active-button{
+  background-color: rgb(75, 75, 77);
+}
+.table_info{
+  width: 40%;
+}
+.table_info TR{
+  height: 50px;
+}
+.table_marks{
+  width: 40%;
+}
+.table_marks TR{
+  height: 50px;
 }
 

@@ -28,15 +28,41 @@
     </div>
   </div>
   <div class ="container" id="main">
-    Rinat sosi huy
+    <h1>Информация о студенте</h1>
+    <table class="table_info">
+        <tr>
+          <td>Имя студента: </td>
+          <td><%=name%></td>
+        </tr>
+        <tr>
+          <td>Номер зачетной книжки: </td>
+          <td><%=record%></td>
+        </tr>
+        <tr>
+          <td>Факультет: </td>
+          <td><%=faculty%></td>
+        </tr>
+        <tr>
+          <td>Направление: </td>
+          <td><%=direction%></td>
+        </tr>
+        <tr>
+          <td>Номер группы: </td>
+          <td><%=group%></td>
+        </tr>
+        <tr>
+          <td>Дата поступления: </td>
+          <td><%=admissionYear%></td>
+        </tr>
+    </table>
   </div>
   <div class ="container" id="marks">
-    <table>
-      <thead>
+    <table class="table_marks">
+      <tdead>
         <tr>
-          <th>Семестр</th>
-          <th>Предмет</th>
-          <th>Оценка</th>
+          <th align="left">Семестр</th>
+          <th align="left">Предмет</th>
+          <th align="left">Оценка</th>
         </tr>
       </thead>
       <tbody>

@@ -5,6 +5,7 @@ import * as Auth from './model/auth';
 import * as Marks from './model/marks';
 import * as Semester from './model/semester';
 import * as Subject from './model/subject';
+import * as Information from './model/information';
 
 interface IDBConfig {
   database: string;
@@ -21,6 +22,7 @@ interface IModelsSite {
   marks: Sequelize.Model<Marks.IInstance, Marks.IAttributes>;
   subject: Sequelize.Model<Subject.IInstance, Subject.IAttributes>;
   semester: Sequelize.Model<Semester.IInstance, Semester.IAttributes>;
+  information: Sequelize.Model<Information.IInstance, Information.IAttributes>;
 }
 
 export interface IDB {
@@ -86,6 +88,7 @@ Object.keys(configDatabase).forEach((dbName) => {
       models.marks = Marks.init(connection);
       models.subject = Subject.init(connection);
       models.semester = Semester.init(connection);
+      models.information = Information.init(connection);
 
       models.users.hasMany(models.auth, { foreignKey: 'userId' });
       models.auth.belongsTo(models.users, { foreignKey: 'userId' });
@@ -98,6 +101,8 @@ Object.keys(configDatabase).forEach((dbName) => {
 
       models.semester.hasMany(models.marks, { foreignKey: 'semesterId' });
       models.marks.belongsTo(models.semester, { foreignKey: 'semesterId' });
+
+      models.users.hasOne(models.information, { foreignKey: 'userId'});
     }
 
     return {
