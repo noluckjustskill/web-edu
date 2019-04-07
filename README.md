@@ -4,9 +4,13 @@
 Реализовать личный кабинет для преподавателей и студентов. Требования к функционалу будут изменяться/добавляться по мере выполнения.
 
 ## Инициализация проекта
-* Нода: ```npm install``` и ```npm install -g typescript```
-* БД: поднять сервер MySQL => ```CREATE DATABASE site;``` => ```mysql -p -u [user] site < doc/db.sql```
-* Запуск: ```npm start```
+* Нода
+```npm install
+  npm install -g typescript
+  npm install -g ts-node
+  npm install -g nodemon
+  ```
+* Запуск: ```npm run watch```
 
 ## Дополнительно
 * Обязательно использовать плагин **tslint** для VSCode

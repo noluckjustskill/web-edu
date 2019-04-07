@@ -48,9 +48,9 @@ export interface IAttributes {
   };
 }
 
-export const configDatabase: IDBConfig = require('../../config/database.json');
-export const Op = Sequelize.Op;
+import * as configDatabase from '../config/database.json';
 
+export const Op = Sequelize.Op;
 export const db: IDB = {};
 
 Object.keys(configDatabase).forEach((dbName) => {
@@ -95,7 +95,7 @@ Object.keys(configDatabase).forEach((dbName) => {
 
       models.users.hasMany(models.marks, { foreignKey: 'userId' });
       models.marks.belongsTo(models.users, { foreignKey: 'userId' });
-      
+
       models.subject.hasMany(models.marks, { foreignKey: 'subjectId' });
       models.marks.belongsTo(models.subject, { foreignKey: 'subjectId' });
 
