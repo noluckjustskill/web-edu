@@ -1,5 +1,4 @@
 import * as Express from 'express';
-import * as ejs from 'ejs';
 import * as BodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as upload from 'express-fileupload';
@@ -27,21 +26,21 @@ app.use(Auth);
 
 startController('/api');
 
-app.use('/public', Express.static(path.resolve(`${__dirname}/../../public`)));
+app.use('/public', Express.static('../public'));
 app.get('/', (req, res, next) => {
   ClientController(req).then((obj) => {
-    res.render(path.resolve(`${__dirname}/../../view/index.ejs`), obj);
+    res.render('../view/index.ejs', obj);
   });
 });
 
 
 app.get('/login', (req, res, next) => {
-  res.render(path.resolve(`${__dirname}/../../view/login.ejs`));
+  res.render('../view/login.ejs');
 });
 
 app.post('/auth', AuthController);
 
-app.get('/logout',LogoutController);
+app.get('/logout', LogoutController);
 
 app.listen(configHttp.port, configHttp.ip, () => {
   console.log(`Started HTTP server at ${configHttp.ip}:${configHttp.port}`);
