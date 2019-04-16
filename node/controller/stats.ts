@@ -1,6 +1,4 @@
-import { Request, Response } from 'express';
 import { db, Op } from '../database';
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 
 interface IRequestBody {
     semester?: string;
