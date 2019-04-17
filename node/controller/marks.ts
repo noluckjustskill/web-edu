@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import { db, Op } from '../database';
 
 interface IResponseBody {
