@@ -10,3 +10,8 @@ $('#navbar a').click((e) => {
     $('.container').hide();
     $('#'+$(e.target).attr('data-href')).show();
 });
+
+$('#navbar a.unclicked').click(function(){
+    $('#navbar a.clicked').removeClass('clicked').addClass('unclicked');
+    $(this).removeClass('unlicked').addClass('clicked');
+ });

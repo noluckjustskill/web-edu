@@ -13,23 +13,22 @@
 </head>
 
 <body>
-  <header>
-    <a href="/logout" class="button" />Выйти</a>
-  </header>
   </div>
   <div id="left_bar">
     <div id="menu">
       <ul id="navbar">
-        <li><a data-href="main">Главная</a></li>
-        <li><a data-href="marks">Табель успеваемости</a></li>
-        <li><a data-href="main">Статистика успеваемости</a></li>
-        <li><a data-href="marks">Документы</a></li>
+        <li><a data-href="main" id="1" class="unclicked">Главная</a></li>
+        <li><a data-href="marks" id="2" class="unclicked">Табель успеваемости</a></li>
+        <li><a data-href="main" id="3" class="unclicked">Статистика успеваемости</a></li>
+        <li><a data-href="marks" id="4" class="unclicked">Документы</a></li>
       </ul>
     </div>
   </div>
   <div class ="container" id="main">
-    <h1>Информация о студенте</h1>
+      <a href="/logout" class="button" />Выйти</a>
+      <div class="content">
     <table class="table_info">
+        <tr><th>Информация о студенте</th><td></td></tr>
         <tr>
           <td>Имя студента: </td>
           <td><%=name%></td>
@@ -55,8 +54,11 @@
           <td><%=admissionYear%></td>
         </tr>
     </table>
+    </div>
   </div>
   <div class ="container" id="marks">
+      <a href="/logout" class="button" />Выйти</a>
+      <div class="content">
     <table class="table_marks">
       <tdead>
         <tr>
@@ -68,6 +70,7 @@
       <tbody>
       </tbody>
     </table>
+    </div>
   </div>
 
   <script src="public/js/main.js"></script>
