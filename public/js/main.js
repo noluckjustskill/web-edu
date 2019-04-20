@@ -9,4 +9,6 @@ $.get( '/api/marks', ( data ) => {
 $('#navbar a').click((e) => {
     $('.container').hide();
     $('#'+$(e.target).attr('data-href')).show();
+    $('#navbar a').removeClass('clicked').addClass('unclicked');
+    $(e.target).removeClass('unlicked').addClass('clicked');
 });
