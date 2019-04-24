@@ -11,8 +11,6 @@
 
   <script src="public/js/jquery.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
 </head>
 
 <body>
@@ -78,7 +76,18 @@
   <div class="container" id="stats">
     <a href="/logout" class="button" />Выйти</a>
     <div class="content">
-        
+        <select id="semestre">
+            <option value="1">1 семестр</option>
+            <option value="2">2 семестр</option>
+            <option value="3">3 семестр</option>
+            <option value="4">4 семестр</option>
+            <option value="5">5 семестр</option>
+            <option value="6">6 семестр</option>
+            <option value="7">7 семестр</option>
+            <option value="8">8 семестр</option>
+          </select>
+    <div id="graphics" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+    <div id="graphics1" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
   </div>
 
   <script src="public/js/main.js"></script>
