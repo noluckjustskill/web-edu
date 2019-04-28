@@ -12,8 +12,11 @@ $('#navbar a').click((e) => {
     $('#navbar a').removeClass('clicked').addClass('unclicked');
     $(e.target).removeClass('unlicked').addClass('clicked');
 });
-$.get( '/api/stats', Graphics_marks_render);
-$.get( '/api/stats', Graphics_avrg_render);
+
+$.get('/api/stats', (data) => {
+    Graphics_marks_render(data);
+    Graphics_avrg_render(data);
+});
 
 $('#semestre').change(() => {
     $('#graphics').empty();
@@ -59,14 +62,13 @@ function Graphics_marks_render( data ){
             ],
             dataLabels: {
                 enabled: true,
-                rotation: -90,
-                color: '#FFFFFF',
-                align: 'right',
+                rotation: 0,
+                color: 'black',
                 format: '{point.y:.0f}', // one decimal
-                y: 10, // 10 pixels down from the top
+                y: 5, // 5 pixels down from the top
                 style: {
                     fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
+                    fontFamily: 'Georgia',
                 }
             }
         }]
@@ -118,13 +120,12 @@ function Graphics_avrg_render( data ){
             dataLabels: {
                 enabled: true,
                 rotation: 0,
-                color: '#FFFFFF',
-                //align: 'right',
+                color: 'black',
                 format: '{point.y:.2f}', // one decimal
-                y: 10, // 10 pixels down from the top
+                y: 5, // 5 pixels down from the top
                 style: {
                     fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
+                    fontFamily: 'Georgia'
                 }
             }
         }]
@@ -133,14 +134,13 @@ function Graphics_avrg_render( data ){
 }
 
 function Avrg_mark( data, sem ){
-    var count = 0; //количество оценок
-    var sum = 0; //суммарный балл
+   let count = 0; //количество оценок
+   let sum = 0; //суммарный балл
     for (var i in data.stats[sem]){
-         if(data.stats[sem][i] != undefined){
+         if(typeof(data.stats[sem][i]) !== undefined){
          count += data.stats[sem][i];
          sum += i * data.stats[sem][i];
         }
     }
-    console.log(sum/count);
     return(sum/count);
 }
